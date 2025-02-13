@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: Insurance
+Version: 0.0.0
+Summary: Network End to End ML Project
+Home-page: https://github.com/Ashokmevada/Insurance
+Author: Ashokmevada
+Author-email: ashokmevada18@gmail.com
+Project-URL: Bug Tracker, https://github.com/Ashokmevada/Insurance/issues
+Requires-Dist: pandas
+Requires-Dist: numpy
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: summary
+
+# Complete End-TO-End Data Science Project
