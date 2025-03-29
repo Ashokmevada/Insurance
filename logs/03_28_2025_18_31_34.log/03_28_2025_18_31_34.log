@@ -1,0 +1,11 @@
+[ 2025-03-28 18:31:37,692 ] 15 root - INFO - Initiated Data Ingestion
+[ 2025-03-28 18:31:42,660 ] 60 root - INFO - Performed Train Test Split on the dataframe
+[ 2025-03-28 18:31:42,662 ] 63 root - INFO - Exporting train and test file path.
+[ 2025-03-28 18:31:42,744 ] 70 root - INFO - Exported train and test file path.
+[ 2025-03-28 18:31:42,744 ] 17 root - INFO - Completed Data Ingestion
+[ 2025-03-28 18:31:42,756 ] 20 root - INFO - Initiated Data Validation
+[ 2025-03-28 18:31:42,819 ] 40 root - INFO - Required number of columns:27
+[ 2025-03-28 18:31:42,819 ] 41 root - INFO - Data frame has columns:31
+[ 2025-03-28 18:31:42,819 ] 40 root - INFO - Required number of columns:27
+[ 2025-03-28 18:31:42,819 ] 41 root - INFO - Data frame has columns:31
+[ 2025-03-28 18:31:42,927 ] 22 root - INFO - Completed Data Validation

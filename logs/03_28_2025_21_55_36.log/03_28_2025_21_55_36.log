@@ -1,0 +1,14 @@
+[ 2025-03-28 21:55:40,913 ] 16 root - INFO - Initiated Data Ingestion
+[ 2025-03-28 21:55:46,417 ] 60 root - INFO - Performed Train Test Split on the dataframe
+[ 2025-03-28 21:55:46,417 ] 63 root - INFO - Exporting train and test file path.
+[ 2025-03-28 21:55:46,485 ] 70 root - INFO - Exported train and test file path.
+[ 2025-03-28 21:55:46,485 ] 18 root - INFO - Completed Data Ingestion
+[ 2025-03-28 21:55:46,501 ] 21 root - INFO - Initiated Data Validation
+[ 2025-03-28 21:55:46,569 ] 40 root - INFO - Required number of columns:27
+[ 2025-03-28 21:55:46,569 ] 41 root - INFO - Data frame has columns:27
+[ 2025-03-28 21:55:46,569 ] 40 root - INFO - Required number of columns:27
+[ 2025-03-28 21:55:46,569 ] 41 root - INFO - Data frame has columns:27
+[ 2025-03-28 21:55:46,767 ] 23 root - INFO - Completed Data Validation
+[ 2025-03-28 21:55:46,767 ] 25 root - INFO - Initiated Data Transformation
+[ 2025-03-28 21:55:46,767 ] 61 root - INFO - Started Data Transformation and Reading train and test file
+[ 2025-03-28 21:55:46,818 ] 46 root - INFO - Entered the save_object method of MainUtils class

@@ -1,0 +1,5 @@
+[ 2025-03-28 18:28:48,179 ] 15 root - INFO - Initiated Data Ingestion
+[ 2025-03-28 18:28:53,677 ] 60 root - INFO - Performed Train Test Split on the dataframe
+[ 2025-03-28 18:28:53,677 ] 63 root - INFO - Exporting train and test file path.
+[ 2025-03-28 18:28:53,753 ] 70 root - INFO - Exported train and test file path.
+[ 2025-03-28 18:28:53,753 ] 17 root - INFO - Completed Data Ingestion

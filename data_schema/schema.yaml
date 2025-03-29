@@ -1,0 +1,59 @@
+columns:
+  - Age: int64
+  - Is_Senior: int64
+  - Marital_Status: object
+  - Married_Premium_Discount: int64
+  - Prior_Insurance: object
+  - Prior_Insurance_Premium_Adjustment: int64
+  - Claims_Frequency: int64
+  - Claims_Severity: object
+  - Claims_Adjustment: int64
+  - Policy_Type: object
+  - Policy_Adjustment: int64
+  - Premium_Amount: int64
+  - Safe_Driver_Discount: int64
+  - Multi_Policy_Discount: int64
+  - Bundling_Discount: int64
+  - Total_Discounts: int64
+  - Source_of_Lead: object
+  - Time_Since_First_Contact: int64
+  - Conversion_Status: int64
+  - Website_Visits: int64
+  - Inquiries: int64
+  - Quotes_Requested: int64
+  - Time_to_Conversion: int64
+  - Credit_Score: int64
+  - Premium_Adjustment_Credit: int64
+  - Region: object
+  - Premium_Adjustment_Region: int64
+
+numerical_columns:
+  - Age
+  - Is_Senior
+  - Married_Premium_Discount
+  - Prior_Insurance_Premium_Adjustment
+  - Claims_Frequency
+  - Claims_Adjustment
+  - Policy_Adjustment
+  - Premium_Amount
+  - Safe_Driver_Discount
+  - Multi_Policy_Discount
+  - Bundling_Discount
+  - Total_Discounts
+  - Time_Since_First_Contact
+  - Conversion_Status
+  - Website_Visits
+  - Inquiries
+  - Quotes_Requested
+  - Time_to_Conversion
+  - Credit_Score
+  - Premium_Adjustment_Credit
+  - Premium_Adjustment_Region
+
+categorical_columns:
+  - Marital_Status
+  - Prior_Insurance
+  - Claims_Severity
+  - Policy_Type
+  - Source_of_Lead
+  - Region

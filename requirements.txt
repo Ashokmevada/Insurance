@@ -1,3 +1,12 @@
 pandas
 numpy
--e .
+python-dotenv
+pymongo[srv]
+pymongo
+certifi
+scikit-learn
+matplotlib
+seaborn
+apache-airflow
+
+# -e .
