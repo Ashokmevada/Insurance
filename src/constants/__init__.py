@@ -5,7 +5,7 @@ import sys
 """
 Some common Constant start with VAR NAME
 """
-TARGET_COLUMN = "Result"
+TARGET_COLUMN = "Claims_Frequency"
 PIPELINE_NAME = "Insurance"
 ARTIFACT_DIR = "Artifacts"
 FILE_NAME = "phisingData"
@@ -43,3 +43,15 @@ DATA_TRANSFORMATION_DIR_NAME: str = "data_transformation"
 DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR: str = "transformed"
 DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR: str = "transformed_object"
 
+"""
+Model Training Constants
+
+"""
+
+MODEL_TRAINER_DIR_NAME: str = "model_trainer"
+MODEL_TRAINER_TRAINED_MODEL_DIR: str = "trained_model"
+MODEL_TRAINER_TRAINED_MODEL_NAME: str = "model.pkl"
+MODEL_TRAINER_EXPECTED_SCORE: float = 0.6
+MODEL_TRAINER_OVER_FIITING_UNDER_FITTING_THRESHOLD: float = 0.05
+
+TRAINING_BUCKET_NAME = "eteinsurance"

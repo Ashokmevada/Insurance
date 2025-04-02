@@ -1,0 +1,21 @@
+[ 2025-04-01 21:10:08,870 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-04-01 21:10:08,886 ] 107 dagshub - INFO - Accessing as ashokmevada18
+[ 2025-04-01 21:10:09,380 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/ashokmevada18/Insurance "HTTP/1.1 200 OK"
+[ 2025-04-01 21:10:09,827 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-04-01 21:10:09,830 ] 107 dagshub - INFO - Initialized MLflow to track repo "ashokmevada18/Insurance"
+[ 2025-04-01 21:10:09,830 ] 107 dagshub - INFO - Repository ashokmevada18/Insurance initialized!
+[ 2025-04-01 21:10:09,830 ] 17 root - INFO - Initiated Data Ingestion
+[ 2025-04-01 21:10:17,854 ] 60 root - INFO - Performed Train Test Split on the dataframe
+[ 2025-04-01 21:10:17,854 ] 63 root - INFO - Exporting train and test file path.
+[ 2025-04-01 21:10:17,995 ] 70 root - INFO - Exported train and test file path.
+[ 2025-04-01 21:10:17,995 ] 19 root - INFO - Completed Data Ingestion
+[ 2025-04-01 21:10:18,015 ] 22 root - INFO - Initiated Data Validation
+[ 2025-04-01 21:10:18,115 ] 40 root - INFO - Required number of columns:27
+[ 2025-04-01 21:10:18,115 ] 41 root - INFO - Data frame has columns:27
+[ 2025-04-01 21:10:18,115 ] 40 root - INFO - Required number of columns:27
+[ 2025-04-01 21:10:18,115 ] 41 root - INFO - Data frame has columns:27
+[ 2025-04-01 21:10:18,487 ] 24 root - INFO - Completed Data Validation
+[ 2025-04-01 21:10:18,487 ] 26 root - INFO - Initiated Data Transformation
+[ 2025-04-01 21:10:18,487 ] 65 root - INFO - Started Data Transformation and Reading train and test file
+[ 2025-04-01 21:10:18,582 ] 46 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-04-01 21:10:18,582 ] 50 root - INFO - Exited the save_object method of MainUtils class

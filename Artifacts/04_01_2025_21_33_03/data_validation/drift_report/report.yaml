@@ -1,0 +1,81 @@
+Age:
+  drift_status: false
+  p_value: 0.7408707771972274
+Bundling_Discount:
+  drift_status: false
+  p_value: 0.9966624075359507
+Claims_Adjustment:
+  drift_status: false
+  p_value: 0.9964020854338079
+Claims_Frequency:
+  drift_status: false
+  p_value: 0.999999999448217
+Claims_Severity:
+  drift_status: false
+  p_value: 0.9807561488412629
+Conversion_Status:
+  drift_status: false
+  p_value: 0.9996106594229701
+Credit_Score:
+  drift_status: false
+  p_value: 0.36294157034848556
+Inquiries:
+  drift_status: false
+  p_value: 0.9999548877348203
+Is_Senior:
+  drift_status: false
+  p_value: 1.0
+Marital_Status:
+  drift_status: false
+  p_value: 0.9919079178270296
+Married_Premium_Discount:
+  drift_status: false
+  p_value: 0.9992544528650021
+Multi_Policy_Discount:
+  drift_status: false
+  p_value: 0.9302620990024228
+Policy_Adjustment:
+  drift_status: false
+  p_value: 1.0
+Policy_Type:
+  drift_status: false
+  p_value: 1.0
+Premium_Adjustment_Credit:
+  drift_status: false
+  p_value: 0.9999999980210574
+Premium_Adjustment_Region:
+  drift_status: false
+  p_value: 0.7515314007811624
+Premium_Amount:
+  drift_status: false
+  p_value: 0.9857465979107954
+Prior_Insurance:
+  drift_status: false
+  p_value: 0.9999999735242368
+Prior_Insurance_Premium_Adjustment:
+  drift_status: false
+  p_value: 0.9999999735242368
+Quotes_Requested:
+  drift_status: false
+  p_value: 0.9979318486327502
+Region:
+  drift_status: false
+  p_value: 0.7515314007811624
+Safe_Driver_Discount:
+  drift_status: false
+  p_value: 1.0
+Source_of_Lead:
+  drift_status: false
+  p_value: 0.9857465979107954
+Time_Since_First_Contact:
+  drift_status: false
+  p_value: 0.08158873848766944
+Time_to_Conversion:
+  drift_status: false
+  p_value: 0.4685052008733643
+Total_Discounts:
+  drift_status: false
+  p_value: 0.4552943747083601
+Website_Visits:
+  drift_status: false
+  p_value: 0.7690751774332275

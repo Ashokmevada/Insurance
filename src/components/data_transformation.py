@@ -86,14 +86,20 @@ class DataTransformation:
             
             train_df.drop(columns=drop_columns, inplace=True)
             test_df.drop(columns=drop_columns, inplace=True)
-            
+
+            # Reorder columns to place 'Claims_Frequency' as the last column
+            if "Claims_Frequency" in train_df.columns:
+                train_df = train_df[[col for col in train_df.columns if col != "Claims_Frequency"] + ["Claims_Frequency"]]
+            if "Claims_Frequency" in test_df.columns:
+                test_df = test_df[[col for col in test_df.columns if col != "Claims_Frequency"] + ["Claims_Frequency"]]
+
             train_arr = train_df.to_numpy()
             test_arr = test_df.to_numpy()
             
             save_numpy_array_data(self.data_transformation_config.transformed_train_file_path, train_arr)
             save_numpy_array_data(self.data_transformation_config.transformed_test_file_path, test_arr)
-            save_object( "final_model/preprocessor.pkl", preprocessor)
-            joblib.dump(preprocessor, "final_model/preprocessor.pkl")
+            save_object("final_model/preprocessor.pkl", preprocessor)
+            
             
             data_transformation_artifact = DataTransformationArtifact(
                 transformed_object_file_path=self.data_transformation_config.transformed_object_file_path,
