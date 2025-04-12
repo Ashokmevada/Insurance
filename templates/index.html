@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insurance Claim Classification</title>
+</head>
+<body>
+    <h2>Insurance Claim Classification</h2>
+
+    <form action="/predict" method="POST">
+
+        <label>Age:</label>
+        <input type="number" name="age" step="any" required><br><br>
+
+        <label>Marital Status:</label>
+        <select name="marital_status" required>
+            <option value="Married">Married</option>
+            <option value="Single">Single</option>
+            <option value="Widowed">Widowed</option>
+            <option value="Divorced">Divorced</option>
+        </select><br><br>
+
+        <label>Married Premium Discount:</label>
+        <input type="number" name="married_premium_discount" step="any" required><br><br>
+
+        <label>Prior Insurance:</label>
+        <select name="prior_insurance" required>
+            <option value="&lt;1 year">&lt;1 year</option>
+            <option value="1-5 years">1-5 years</option>
+            <option value="&gt;5 years">&gt;5 years</option>
+        </select><br><br>
+
+        <label>Claims Severity:</label>
+        <select name="claims_severity" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br><br>
+
+        <label>Claims Adjustment:</label>
+        <input type="number" name="claims_adjustment" step="any" required><br><br>
+
+        <label>Policy Type:</label>
+        <select name="policy_type" required>
+            <option value="Full Coverage">Full Coverage</option>
+            <option value="Liability-Only">Liability-Only</option>
+        </select><br><br>
+
+        <label>Premium Amount:</label>
+        <input type="number" name="premium_amount" step="any" required><br><br>
+
+        <label>Safe Driver Discount:</label>
+        <input type="number" name="safe_driver_discount" step="any" required><br><br>
+
+        <label>Multi Policy Discount:</label>
+        <input type="number" name="multi_policy_discount" step="any" required><br><br>
+
+        <label>Bundling Discount:</label>
+        <input type="number" name="bundling_discount" step="any" required><br><br>
+
+        <label>Total Discounts:</label>
+        <input type="number" name="total_discounts" step="any" required><br><br>
+
+        <label>Source of Lead:</label>
+        <select name="source_of_lead" required>
+            <option value="Agent">Agent</option>
+            <option value="Online">Online</option>
+            <option value="Referral">Referral</option>
+        </select><br><br>
+
+        <label>Credit Score:</label>
+        <input type="number" name="credit_score" step="any" required><br><br>
+
+        <label>Region:</label>
+        <select name="region" required>
+            <option value="Suburban">Suburban</option>
+            <option value="Urban">Urban</option>
+            <option value="Rural">Rural</option>
+        </select><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h3>Claims that a customer will make: {{ prediction }}</h3>
+    {% endif %}
+
+</body>
+</html>

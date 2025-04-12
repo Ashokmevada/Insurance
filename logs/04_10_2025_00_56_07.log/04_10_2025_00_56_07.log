@@ -1,0 +1,23 @@
+[ 2025-04-10 00:56:08,840 ] 224 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.2.115:5000
+[ 2025-04-10 00:56:08,841 ] 224 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2025-04-10 00:56:17,203 ] 48 root - INFO - Raw input data: {'Age': 36.0, 'Marital_Status': 'Single', 'Married_Premium_Discount': 86.0, 'Prior_Insurance': '>5 years', 'Claims_Severity': 'Low', 'Claims_Adjustment': 100.0, 'Policy_Type': 'Full Coverage', 'Premium_Amount': 2350.0, 'Safe_Driver_Discount': 0.0, 'Multi_Policy_Discount': 0.0, 'Bundling_Discount': 0.0, 'Total_Discounts': 0.0, 'Source_of_Lead': 'Agent', 'Credit_Score': 662.0, 'Region': 'Suburban'}
+[ 2025-04-10 00:56:20,977 ] 57 root - INFO - Transformed input: [[ 1.39741703 -0.60168759 -0.81067686 -1.34199635 -1.64846534 -1.81649329
+  -0.28405719  1.01496917  0.93576097  0.86030424 -0.50066955 -0.65487635
+  -0.32988341 -0.89140923 -1.0616532 ]]
+[ 2025-04-10 00:56:20,982 ] 62 root - INFO - Prediction: [0.]
+[ 2025-04-10 00:56:20,988 ] 224 werkzeug - INFO - 192.168.2.115 - - [10/Apr/2025 00:56:20] "POST /predict HTTP/1.1" 200 -
+[ 2025-04-10 00:58:50,190 ] 48 root - INFO - Raw input data: {'Age': 36.0, 'Marital_Status': 'Single', 'Married_Premium_Discount': 0.0, 'Prior_Insurance': '>5 years', 'Claims_Severity': 'Low', 'Claims_Adjustment': 100.0, 'Policy_Type': 'Full Coverage', 'Premium_Amount': 2350.0, 'Safe_Driver_Discount': 0.0, 'Multi_Policy_Discount': 0.0, 'Bundling_Discount': 0.0, 'Total_Discounts': 0.0, 'Source_of_Lead': 'Agent', 'Credit_Score': 662.0, 'Region': 'Suburban'}
+[ 2025-04-10 00:58:50,214 ] 57 root - INFO - Transformed input: [[ 1.39741703 -0.60168759 -0.81067686 -1.34199635 -1.64846534 -1.81649329
+  -0.28405719 -0.9852516   0.93576097  0.86030424 -0.50066955 -0.65487635
+  -0.32988341 -0.89140923 -1.0616532 ]]
+[ 2025-04-10 00:58:50,217 ] 62 root - INFO - Prediction: [0.]
+[ 2025-04-10 00:58:50,218 ] 224 werkzeug - INFO - 192.168.2.115 - - [10/Apr/2025 00:58:50] "POST /predict HTTP/1.1" 200 -
+[ 2025-04-10 01:05:24,933 ] 48 root - INFO - Raw input data: {'Age': 62.0, 'Marital_Status': 'Married', 'Married_Premium_Discount': 86.0, 'Prior_Insurance': '>5 years', 'Claims_Severity': 'Low', 'Claims_Adjustment': 50.0, 'Policy_Type': 'Full Coverage', 'Premium_Amount': 2336.0, 'Safe_Driver_Discount': 0.0, 'Multi_Policy_Discount': 0.0, 'Bundling_Discount': 0.0, 'Total_Discounts': 0.0, 'Source_of_Lead': 'Online', 'Credit_Score': 809.0, 'Region': 'Suburban'}
+[ 2025-04-10 01:05:24,955 ] 57 root - INFO - Transformed input: [[ 1.39741703 -0.60168759 -0.81067686 -1.34199635 -1.64846534 -1.81649329
+   1.56376639  1.01496917  0.18851858  0.76659252 -0.50066955 -0.65487635
+  -0.32988341 -0.89140923  1.90226548]]
+[ 2025-04-10 01:05:24,957 ] 62 root - INFO - Prediction: [0.]
+[ 2025-04-10 01:05:24,958 ] 224 werkzeug - INFO - 192.168.2.115 - - [10/Apr/2025 01:05:24] "POST /predict HTTP/1.1" 200 -

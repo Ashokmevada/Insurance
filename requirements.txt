@@ -10,4 +10,6 @@ seaborn
 apache-airflow
 mlflow
 dagshub
+dvc
+dvc[all]
 # -e .

@@ -48,74 +48,90 @@ class ModelTrainer:
         except Exception as e:
             raise CustomException(e,sys)
         
-    def track_mlflow(self,best_model,classificationmetric):
+    def track_mlflow(self, best_model, classificationmetric, best_model_params=None):
         mlflow.set_registry_uri(os.getenv("MLFLOW_TRACKING_URI"))
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
+        # Only start a single run to log everything under one experiment
         with mlflow.start_run():
 
-            f1_score=classificationmetric.f1_score
-            precision_score=classificationmetric.precision_score
-            recall_score=classificationmetric.recall_score
-            
+            # Log metrics
+            f1_score = classificationmetric.f1_score
+            precision_score = classificationmetric.precision_score
+            recall_score = classificationmetric.recall_score
 
-            mlflow.log_metric("f1_score",f1_score)
-            mlflow.log_metric("precision",precision_score)
-            mlflow.log_metric("recall_score",recall_score)
-            mlflow.sklearn.log_model(best_model,"model")
-            # # Model registry does not work with file store
+            mlflow.log_metric("f1_score", f1_score)
+            mlflow.log_metric("precision", precision_score)
+            mlflow.log_metric("recall_score", recall_score)
+
+            # Log the model
+            mlflow.sklearn.log_model(best_model, "model")
+
+            # Log hyperparameters if provided
+            if best_model_params:
+                mlflow.log_params(best_model_params)
+
+            # Register the model if necessary
             if tracking_url_type_store != "file":
-
-                # Register the model
-                # There are other ways to use the Model Registry, which depends on the use case,
-                
-                mlflow.sklearn.log_model(best_model, "model", registered_model_name= "best_model")
+                mlflow.sklearn.log_model(best_model, "model", registered_model_name="best_model")
             else:
-                mlflow.sklearn.log_model(best_model, "model" )
+                mlflow.sklearn.log_model(best_model, "model")
+
 
 
         
     def train_model(self, X_train, y_train, X_test, y_test):
-
         models = {
-            "Random Forest": RandomForestClassifier(verbose=1),
+            "Random Forest": RandomForestClassifier(verbose=1, n_jobs=-1),
             "Decision Tree": DecisionTreeClassifier(),
             "Gradient Boosting": GradientBoostingClassifier(verbose=1),
-            "Logistic Regression": LogisticRegression(verbose=1),
-            "AdaBoost": AdaBoostClassifier(),
+            "Logistic Regression": LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=500, verbose=1),
+            "AdaBoost": AdaBoostClassifier()
         }
 
         params = {
             "Decision Tree": {
-                'criterion': ['gini', 'entropy', 'log_loss'],
+                'criterion': ['gini', 'entropy'],
+                'max_depth': [5, 10, 20, None]
             },
             "Random Forest": {
-                'n_estimators': [8, 16, 32, 128, 256]
+                'n_estimators': [50, 100, 200],
+                'max_depth': [5, 10, 20, None]
             },
             "Gradient Boosting": {
-                'learning_rate': [0.1, 0.01, 0.05, 0.001],
-                'subsample': [0.6, 0.7, 0.75, 0.85, 0.9],
-                'n_estimators': [8, 16, 32, 64, 128, 256]
+                'learning_rate': [0.1, 0.01, 0.05],
+                'n_estimators': [50, 100, 200],
+                'subsample': [0.6, 0.75, 0.9]
             },
-            "Logistic Regression": {},
+            "Logistic Regression": {
+                'C': [0.01, 0.1, 1, 10]
+            },
             "AdaBoost": {
-                'learning_rate': [0.1, 0.01, 0.001],
-                'n_estimators': [8, 16, 32, 64, 128, 256]
+                'learning_rate': [0.01, 0.1, 1],
+                'n_estimators': [50, 100, 200]
             }
         }
 
         logging.info("Starting model evaluation...")
-        model_report = evaluate_models(X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test,
-                                    models=models, param=params)
+        model_report = evaluate_models(
+            X_train=X_train,
+            y_train=y_train,
+            X_test=X_test,
+            y_test=y_test,
+            models=models,
+            param=params
+        )
 
-        # Get the best model
-        best_model_name = max(model_report, key=model_report.get)
-        best_model_score = model_report[best_model_name]
+        best_model_name = max(model_report, key=lambda x: model_report[x]["score"])
+        best_model_score = model_report[best_model_name]["score"]
         best_model = models[best_model_name]
+        best_model_params = model_report[best_model_name]["best_params"]
 
         logging.info(f"Best model found: {best_model_name} with score: {best_model_score}")
+        logging.info(f"Best hyperparameters: {best_model_params}")
 
-        # Train final model
+        # Train final model with best params
+        best_model.set_params(**best_model_params)
         best_model.fit(X_train, y_train)
 
         y_train_pred = best_model.predict(X_train)
@@ -124,23 +140,19 @@ class ModelTrainer:
         y_test_pred = best_model.predict(X_test)
         test_metric = get_classification_score(y_true=y_test, y_pred=y_test_pred)
 
-        # Track the experiment with MLflow
-        self.track_mlflow(best_model, train_metric)
-        self.track_mlflow(best_model, test_metric)
+        # Log using MLflow
+        self.track_mlflow(best_model, train_metric, best_model_params)
+        self.track_mlflow(best_model, test_metric, best_model_params)
 
-        # Load the preprocessor
-        preprocessor = load_object("final_model\preprocessor.pkl")
-
-        # Ensure model directory exists
+        # Save final model with preprocessor
+        preprocessor = load_object("final_model/preprocessor.pkl")
         model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
         os.makedirs(model_dir_path, exist_ok=True)
 
-        # Save the model
         model = Model(preprocessor=preprocessor, model=best_model)
         save_object(self.model_trainer_config.trained_model_file_path, obj=model)
         save_object("final_model/model.pkl", best_model)
 
-        # Create Model Trainer Artifact
         model_trainer_artifact = ModelTrainerArtifact(
             trained_model_file_path=self.model_trainer_config.trained_model_file_path,
             train_metric_artifact=train_metric,
@@ -149,26 +161,28 @@ class ModelTrainer:
 
         logging.info(f"Model trainer artifact: {model_trainer_artifact}")
         return model_trainer_artifact
+
+        
         
     def initiate_model_trainer(self)->ModelTrainerArtifact:
-        try:
-            train_file_path = self.data_transformation_artifact.transformed_train_file_path
-            test_file_path = self.data_transformation_artifact.transformed_test_file_path
+            try:
+                train_file_path = self.data_transformation_artifact.transformed_train_file_path
+                test_file_path = self.data_transformation_artifact.transformed_test_file_path
 
-            #loading training array and testing array
-            train_arr = load_numpy_array_data(train_file_path)
-            test_arr = load_numpy_array_data(test_file_path)
+                #loading training array and testing array
+                train_arr = load_numpy_array_data(train_file_path)
+                test_arr = load_numpy_array_data(test_file_path)
 
-            x_train, y_train, x_test, y_test = (
-                train_arr[:, :-1],
-                train_arr[:, -1],
-                test_arr[:, :-1],
-                test_arr[:, -1],
-            )
+                x_train, y_train, x_test, y_test = (
+                    train_arr[:, :-1],
+                    train_arr[:, -1],
+                    test_arr[:, :-1],
+                    test_arr[:, -1],
+                )
 
-            model_trainer_artifact=self.train_model(x_train,y_train,x_test,y_test)
-            return model_trainer_artifact
+                model_trainer_artifact=self.train_model(x_train,y_train,x_test,y_test)
+                return model_trainer_artifact
 
-            
-        except Exception as e:
-            raise CustomException(e,sys)
+                
+            except Exception as e:
+                raise CustomException(e,sys)
