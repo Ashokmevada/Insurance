@@ -8,6 +8,18 @@ Author-email: ashokmevada18@gmail.com
 Project-URL: Bug Tracker, https://github.com/Ashokmevada/Insurance/issues
 Requires-Dist: pandas
 Requires-Dist: numpy
+Requires-Dist: python-dotenv
+Requires-Dist: pymongo[srv]
+Requires-Dist: pymongo
+Requires-Dist: certifi
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: apache-airflow
+Requires-Dist: mlflow
+Requires-Dist: dagshub
+Requires-Dist: dvc
+Requires-Dist: dvc[all]
 Dynamic: author
 Dynamic: author-email
 Dynamic: description

@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python -m src.components.data_ingestion
+    deps:
+    - path: src\components\data_ingestion.py
+      hash: md5
+      md5: ed46cecd53e21fcc7130c595aee0c23f
+      size: 4680
+    outs:
+    - path: Artifacts\data_ingestion\ingested\test.csv
+      hash: md5
+      md5: 0017e42973e2de40911e4a672439c8e9
+      size: 321455
+    - path: Artifacts\data_ingestion\ingested\train.csv
+      hash: md5
+      md5: 3ae212a2d5dbcf57d4958952b19be365
+      size: 749758
+    - path: data\raw\latest\phisingData
+      hash: md5
+      md5: 8eaf7ed050fa29aeb450e918d61de3d5
+      size: 1070743

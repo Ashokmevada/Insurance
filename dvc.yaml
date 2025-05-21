@@ -1,0 +1,9 @@
+stages:
+  data_ingestion:
+    cmd: python -m src.components.data_ingestion 
+    deps:
+    - src\components\data_ingestion.py
+    outs:
+    - Artifacts\data_ingestion\ingested\test.csv
+    - Artifacts\data_ingestion\ingested\train.csv
+    - data\raw\latest\phisingData

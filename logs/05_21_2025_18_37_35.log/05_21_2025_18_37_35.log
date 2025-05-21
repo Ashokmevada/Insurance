@@ -1,0 +1,5 @@
+[ 2025-05-21 18:37:37,463 ] 109 root - INFO - Initiated Data Ingestion
+[ 2025-05-21 18:37:42,446 ] 61 root - INFO - Raw data saved to Artifacts\data_ingestion\feature_store and synced to latest/
+[ 2025-05-21 18:37:42,451 ] 71 root - INFO - Performed Train Test Split on the dataframe
+[ 2025-05-21 18:37:42,452 ] 74 root - INFO - Exporting train and test file path.
+[ 2025-05-21 18:37:42,523 ] 81 root - INFO - Exported train and test file path.

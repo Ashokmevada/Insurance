@@ -5,13 +5,14 @@ from src.entity.config_entity import DataIngestionConfig
 from src.entity.artifact_entity import DataIngestionArtifact
 import os
 import sys
+import shutil
 import numpy as np
 import pandas as pd
 import pymongo
 from typing import List
 from sklearn.model_selection import train_test_split
 from dotenv import load_dotenv
-
+from src.entity.config_entity import TrainingpipelineConfig
 load_dotenv()
 MONGO_DB_URL=os.getenv("MONGODB_URL")
 class DataIngestion:    
@@ -50,6 +51,16 @@ class DataIngestion:
             dir_path = os.path.dirname(feature_store_file_path)
             os.makedirs(dir_path, exist_ok=True)
             dataframe.to_csv(feature_store_file_path, index=False, header=True)
+
+            # ✅ Also save to fixed path (for DVC)
+            latest_raw_path = os.path.join("data", "raw", "latest")
+            if os.path.exists(latest_raw_path):
+                shutil.rmtree(latest_raw_path)
+            shutil.copytree(dir_path, latest_raw_path)
+
+            logging.info(f"Raw data saved to {dir_path} and synced to latest/")
+            return dataframe
+
             return dataframe
         except Exception as e:
             raise exception.CustomException(e, sys)
@@ -86,3 +97,17 @@ class DataIngestion:
 
         except Exception as e:
             raise exception.CustomException(e, sys)
+
+
+if __name__ == "__main__":
+
+    try:
+
+        training_pipeline_config = TrainingpipelineConfig()
+        data_ingestion_config = DataIngestionConfig(training_pipeline_config)
+        data_ingestion = DataIngestion(data_ingestion_config)
+        logging.info("Initiated Data Ingestion")
+        data_ingestion_artifacts =data_ingestion.initiate_data_ingestion()
+
+    except Exception as e:
+        raise exception.CustomException(e, sys)

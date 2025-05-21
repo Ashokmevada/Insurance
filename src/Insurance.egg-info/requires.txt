@@ -1,2 +1,14 @@
 pandas
 numpy
+python-dotenv
+pymongo[srv]
+pymongo
+certifi
+scikit-learn
+matplotlib
+seaborn
+apache-airflow
+mlflow
+dagshub
+dvc
+dvc[all]

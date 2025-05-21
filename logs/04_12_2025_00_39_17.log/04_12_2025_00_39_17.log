@@ -1,0 +1,7 @@
+[ 2025-04-12 00:39:44,698 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-04-12 00:39:44,698 ] 107 dagshub - INFO - Accessing as ashokmevada18
+[ 2025-04-12 00:39:45,326 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/ashokmevada18/Insurance "HTTP/1.1 200 OK"
+[ 2025-04-12 00:39:45,760 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-04-12 00:39:45,774 ] 107 dagshub - INFO - Initialized MLflow to track repo "ashokmevada18/Insurance"
+[ 2025-04-12 00:39:45,778 ] 107 dagshub - INFO - Repository ashokmevada18/Insurance initialized!
+[ 2025-04-12 00:39:45,778 ] 17 root - INFO - Initiated Data Ingestion

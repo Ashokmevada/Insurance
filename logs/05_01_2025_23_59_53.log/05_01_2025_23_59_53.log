@@ -1,0 +1,33 @@
+[ 2025-05-02 00:00:20,963 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-05-02 00:00:20,981 ] 107 dagshub - INFO - Accessing as ashokmevada18
+[ 2025-05-02 00:00:21,464 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/ashokmevada18/Insurance "HTTP/1.1 200 OK"
+[ 2025-05-02 00:00:21,897 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-05-02 00:00:21,900 ] 107 dagshub - INFO - Initialized MLflow to track repo "ashokmevada18/Insurance"
+[ 2025-05-02 00:00:21,901 ] 107 dagshub - INFO - Repository ashokmevada18/Insurance initialized!
+[ 2025-05-02 00:00:21,902 ] 17 root - INFO - Initiated Data Ingestion
+[ 2025-05-02 00:00:30,502 ] 61 root - INFO - Raw data saved to Artifacts\data_ingestion\feature_store and synced to latest/
+[ 2025-05-02 00:00:30,519 ] 71 root - INFO - Performed Train Test Split on the dataframe
+[ 2025-05-02 00:00:30,521 ] 74 root - INFO - Exporting train and test file path.
+[ 2025-05-02 00:00:30,685 ] 81 root - INFO - Exported train and test file path.
+[ 2025-05-02 00:00:30,699 ] 19 root - INFO - Completed Data Ingestion
+[ 2025-05-02 00:00:30,713 ] 22 root - INFO - Initiated Data Validation
+[ 2025-05-02 00:00:30,792 ] 40 root - INFO - Required number of columns:27
+[ 2025-05-02 00:00:30,792 ] 41 root - INFO - Data frame has columns:27
+[ 2025-05-02 00:00:30,792 ] 40 root - INFO - Required number of columns:27
+[ 2025-05-02 00:00:30,792 ] 41 root - INFO - Data frame has columns:27
+[ 2025-05-02 00:00:31,170 ] 24 root - INFO - Completed Data Validation
+[ 2025-05-02 00:00:31,170 ] 26 root - INFO - Initiated Data Transformation
+[ 2025-05-02 00:00:31,170 ] 76 root - INFO - Started Data Transformation and Reading train and test file
+[ 2025-05-02 00:00:31,285 ] 46 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-05-02 00:00:31,288 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-05-02 00:00:31,291 ] 30 root - INFO - Completed Data Transformation
+[ 2025-05-02 00:00:31,291 ] 32 root - INFO - Model Training started...
+[ 2025-05-02 00:00:31,480 ] 115 root - INFO - Starting model evaluation...
+[ 2025-05-02 00:05:09,877 ] 130 root - INFO - Best model found: Decision Tree with score: 0.9993548381546995
+[ 2025-05-02 00:05:09,878 ] 131 root - INFO - Best hyperparameters: {'criterion': 'gini', 'max_depth': 20}
+[ 2025-05-02 00:06:21,384 ] 46 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-05-02 00:06:21,388 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-05-02 00:06:21,388 ] 46 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-05-02 00:06:21,390 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-05-02 00:06:21,390 ] 162 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=1.0, precision_score=1.0, recall_score=1.0), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9995128205128205, precision_score=0.9993809523809525, recall_score=0.9996666666666667))
+[ 2025-05-02 00:06:21,398 ] 37 root - INFO - Model Training artifact created
