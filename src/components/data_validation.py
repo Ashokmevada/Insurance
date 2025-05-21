@@ -122,7 +122,34 @@ class DataValidation:
             raise CustomException(e,sys)
 
 
+if __name__ == '__main__':
 
+    from src.entity.config_entity import TrainingpipelineConfig, DataValidationConfig, DataIngestionConfig
+    from src.entity.artifact_entity import DataIngestionArtifact
+
+    try:
+        logging.info("Starting Data Validation")
+
+        training_pipeline_config = TrainingpipelineConfig()
+        data_validation_config = DataValidationConfig(training_pipeline_config=training_pipeline_config)
+        data_ingestion_config = DataIngestionConfig(training_pipeline_config=training_pipeline_config)
+
+        data_ingestion_artifacts = DataIngestionArtifact(
+                trained_file_path = data_ingestion_config.training_file_path,
+                test_file_path = data_ingestion_config.testing_file_path
+            )
+        
+        data_validation = DataValidation(data_ingestion_artifacts, data_validation_config)
+        data_validation_artifact = data_validation.initiate_data_validation()
+
+        logging.info("Data Validation Completed")
+    
+    except Exception as e:
+        raise CustomException(e,sys)
+
+
+
+    
 
         
 

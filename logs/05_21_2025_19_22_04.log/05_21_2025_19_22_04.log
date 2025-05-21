@@ -1,0 +1,6 @@
+[ 2025-05-21 19:22:06,096 ] 131 root - INFO - Starting Data Validation
+[ 2025-05-21 19:22:06,157 ] 40 root - INFO - Required number of columns:27
+[ 2025-05-21 19:22:06,157 ] 41 root - INFO - Data frame has columns:27
+[ 2025-05-21 19:22:06,157 ] 40 root - INFO - Required number of columns:27
+[ 2025-05-21 19:22:06,157 ] 41 root - INFO - Data frame has columns:27
+[ 2025-05-21 19:22:06,352 ] 145 root - INFO - Data Validation Completed

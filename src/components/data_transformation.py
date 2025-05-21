@@ -133,3 +133,11 @@ class DataTransformation:
             return data_transformation_artifact
         except Exception as e:
             raise CustomException(e, sys)
+        
+if __name__ == '__main__':
+
+    from src.entity.config_entity import TrainingpipelineConfig, DataValidationConfig, DataTransformationConfig
+    from src.entity.artifact_entity import DataIngestionArtifact
+
+    
+

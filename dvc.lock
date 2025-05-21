@@ -20,3 +20,23 @@ stages:
       hash: md5
       md5: 8eaf7ed050fa29aeb450e918d61de3d5
       size: 1070743
+  data_validation:
+    cmd: python -m src.components.data_validation
+    deps:
+    - path: Artifacts\data_ingestion\ingested\test.csv
+      hash: md5
+      md5: 0017e42973e2de40911e4a672439c8e9
+      size: 321455
+    - path: Artifacts\data_ingestion\ingested\train.csv
+      hash: md5
+      md5: 3ae212a2d5dbcf57d4958952b19be365
+      size: 749758
+    - path: src\components\data_validation.py
+      hash: md5
+      md5: b9883ca5c3a6f4165c0b3a52681bf037
+      size: 5811
+    outs:
+    - path: Artifacts\data_validation\drift_report\report.yaml
+      hash: md5
+      md5: c13960e944320998823ba61615b88721
+      size: 1936
