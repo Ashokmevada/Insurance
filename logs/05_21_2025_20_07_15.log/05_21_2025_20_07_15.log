@@ -1,0 +1,5 @@
+[ 2025-05-21 20:07:15,374 ] 141 root - INFO - Starting Data Transformation Stage
+[ 2025-05-21 20:07:15,374 ] 76 root - INFO - Started Data Transformation and Reading train and test file
+[ 2025-05-21 20:07:15,487 ] 46 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-05-21 20:07:15,489 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-05-21 20:07:15,489 ] 168 root - INFO - Completed Data Transformation Stage

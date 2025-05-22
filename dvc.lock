@@ -40,3 +40,19 @@ stages:
       hash: md5
       md5: c13960e944320998823ba61615b88721
       size: 1936
+  data_transformation:
+    cmd: python -m src.components.data_transformation
+    deps:
+    - path: src\components\data_transformation.py
+      hash: md5
+      md5: abb13cc2f0f4b80d7022eb23e614631e
+      size: 8276
+    outs:
+    - path: Artifacts\data_transformation\transformed\test.npy
+      hash: md5
+      md5: 4e2f5d3ed86f90c90768780a580bd114
+      size: 384128
+    - path: Artifacts\data_transformation\transformed\train.npy
+      hash: md5
+      md5: 0501aeb0e5b51fb5730dc938a9b2ed9b
+      size: 896128

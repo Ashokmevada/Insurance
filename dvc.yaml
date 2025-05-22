@@ -16,3 +16,11 @@ stages:
     - src\components\data_validation.py
     outs:
     - Artifacts\data_validation\drift_report\report.yaml
+
+  data_transformation:
+    cmd: python -m src.components.data_transformation
+    deps:
+    - src\components\data_transformation.py
+    outs:
+    - Artifacts\data_transformation\transformed\test.npy
+    - Artifacts\data_transformation\transformed\train.npy

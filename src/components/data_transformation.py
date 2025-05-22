@@ -136,8 +136,37 @@ class DataTransformation:
         
 if __name__ == '__main__':
 
-    from src.entity.config_entity import TrainingpipelineConfig, DataValidationConfig, DataTransformationConfig
-    from src.entity.artifact_entity import DataIngestionArtifact
+    try: 
 
-    
+        logging.info("Starting Data Transformation Stage")
+        from src.entity.config_entity import TrainingpipelineConfig, DataValidationConfig, DataTransformationConfig, DataIngestionConfig
+        from src.entity.artifact_entity import DataValidationArtifact, DataIngestionArtifact
 
+        training_pipeline_config = TrainingpipelineConfig()
+        data_transformation_config = DataTransformationConfig(training_pipeline_config)
+        data_validation_config = DataValidationConfig(training_pipeline_config)
+
+        data_ingestion_config = DataIngestionConfig(training_pipeline_config=training_pipeline_config)
+
+        data_ingestion_artifacts = DataIngestionArtifact(
+                trained_file_path = data_ingestion_config.training_file_path,
+                test_file_path = data_ingestion_config.testing_file_path
+            )
+
+        data_validation_artifact = DataValidationArtifact(
+        validation_status=True,
+        valid_train_file_path=data_ingestion_artifacts.trained_file_path,
+        valid_test_file_path=data_ingestion_artifacts.test_file_path,
+        invalid_train_file_path="",  # if not needed, can be dummy or empty
+        invalid_test_file_path="",   # same here
+        drift_report_file_path=""    # only needed if used in transformation
+    )
+        
+        data_transformation = DataTransformation(data_validation_artifact, data_transformation_config)
+        data_transformation_artifact = data_transformation.initiate_data_transformation()
+
+        logging.info("Completed Data Transformation Stage")
+
+
+    except Exception as e:
+        raise CustomException(e, sys)
