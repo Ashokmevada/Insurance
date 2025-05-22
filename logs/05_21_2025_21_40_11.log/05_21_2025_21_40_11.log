@@ -1,0 +1,16 @@
+[ 2025-05-21 21:40:17,914 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-05-21 21:40:17,921 ] 107 dagshub - INFO - Accessing as ashokmevada18
+[ 2025-05-21 21:40:18,229 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/ashokmevada18/Insurance "HTTP/1.1 200 OK"
+[ 2025-05-21 21:40:18,500 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-05-21 21:40:18,503 ] 107 dagshub - INFO - Initialized MLflow to track repo "ashokmevada18/Insurance"
+[ 2025-05-21 21:40:18,504 ] 107 dagshub - INFO - Repository ashokmevada18/Insurance initialized!
+[ 2025-05-21 21:40:18,504 ] 194 root - INFO - Starting Model Training Stage
+[ 2025-05-21 21:40:18,509 ] 115 root - INFO - Starting model evaluation...
+[ 2025-05-21 21:44:00,957 ] 130 root - INFO - Best model found: Gradient Boosting with score: 0.9986788910347124
+[ 2025-05-21 21:44:00,957 ] 131 root - INFO - Best hyperparameters: {'learning_rate': 0.1, 'n_estimators': 100, 'subsample': 0.75}
+[ 2025-05-21 21:44:46,617 ] 46 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-05-21 21:44:46,633 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-05-21 21:44:46,633 ] 46 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-05-21 21:44:46,651 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-05-21 21:44:46,651 ] 162 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=1.0, precision_score=1.0, recall_score=1.0), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9984682464454977, precision_score=0.9982920035938904, recall_score=0.9986666666666667))
+[ 2025-05-21 21:44:46,656 ] 229 root - INFO - Completed Model Training Stage

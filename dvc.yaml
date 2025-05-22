@@ -25,3 +25,12 @@ stages:
     outs:
     - Artifacts\data_transformation\transformed\test.npy
     - Artifacts\data_transformation\transformed\train.npy
+
+  model_training:
+    cmd: python -m src.components.model_training
+    deps:
+    - src\components\data_transformation.py
+    - Artifacts\data_transformation\transformed\test.npy
+    - Artifacts\data_transformation\transformed\train.npy
+    outs:
+    - Artifacts\model_trainer\trained_model\model.pkl

@@ -49,8 +49,8 @@ stages:
       size: 1967
     - path: src\components\data_transformation.py
       hash: md5
-      md5: abb13cc2f0f4b80d7022eb23e614631e
-      size: 8276
+      md5: cdc0761bfb94b77941a70ae896ec76e2
+      size: 8357
     outs:
     - path: Artifacts\data_transformation\transformed\test.npy
       hash: md5
@@ -60,3 +60,23 @@ stages:
       hash: md5
       md5: 0501aeb0e5b51fb5730dc938a9b2ed9b
       size: 896128
+  model_training:
+    cmd: python -m src.components.model_training
+    deps:
+    - path: Artifacts\data_transformation\transformed\test.npy
+      hash: md5
+      md5: 4e2f5d3ed86f90c90768780a580bd114
+      size: 384128
+    - path: Artifacts\data_transformation\transformed\train.npy
+      hash: md5
+      md5: 0501aeb0e5b51fb5730dc938a9b2ed9b
+      size: 896128
+    - path: src\components\data_transformation.py
+      hash: md5
+      md5: cdc0761bfb94b77941a70ae896ec76e2
+      size: 8357
+    outs:
+    - path: Artifacts\model_trainer\trained_model\model.pkl
+      hash: md5
+      md5: b0daea9edb0af0fd1ef79a7ec8c4ec7c
+      size: 710594

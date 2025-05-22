@@ -11,6 +11,7 @@ from src.logging.logger import logging
 from src.entity.config_entity import DataTransformationConfig
 from src.exception.exception import CustomException 
 from src.utils.main_utils.utils import save_numpy_array_data, save_object
+
 def label_encoder_function(df):
             for col in df.columns:
                 df[col] = LabelEncoder().fit_transform(df[col])
@@ -141,6 +142,7 @@ if __name__ == '__main__':
         logging.info("Starting Data Transformation Stage")
         from src.entity.config_entity import TrainingpipelineConfig, DataValidationConfig, DataTransformationConfig, DataIngestionConfig
         from src.entity.artifact_entity import DataValidationArtifact, DataIngestionArtifact
+        from src.components.data_transformation import label_encoder_function
 
         training_pipeline_config = TrainingpipelineConfig()
         data_transformation_config = DataTransformationConfig(training_pipeline_config)

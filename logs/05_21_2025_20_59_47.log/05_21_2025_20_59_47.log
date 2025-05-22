@@ -1,0 +1,10 @@
+[ 2025-05-21 20:59:56,111 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-05-21 20:59:56,119 ] 107 dagshub - INFO - Accessing as ashokmevada18
+[ 2025-05-21 20:59:56,455 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/ashokmevada18/Insurance "HTTP/1.1 200 OK"
+[ 2025-05-21 20:59:56,726 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-05-21 20:59:56,729 ] 107 dagshub - INFO - Initialized MLflow to track repo "ashokmevada18/Insurance"
+[ 2025-05-21 20:59:56,730 ] 107 dagshub - INFO - Repository ashokmevada18/Insurance initialized!
+[ 2025-05-21 20:59:56,731 ] 194 root - INFO - Starting Model Training Stage
+[ 2025-05-21 20:59:56,755 ] 115 root - INFO - Starting model evaluation...
+[ 2025-05-21 21:04:16,496 ] 130 root - INFO - Best model found: Decision Tree with score: 0.9973577820694247
+[ 2025-05-21 21:04:16,496 ] 131 root - INFO - Best hyperparameters: {'criterion': 'gini', 'max_depth': 10}

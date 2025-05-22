@@ -1,0 +1,16 @@
+[ 2025-05-21 21:32:51,486 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-05-21 21:32:51,508 ] 107 dagshub - INFO - Accessing as ashokmevada18
+[ 2025-05-21 21:32:51,907 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/ashokmevada18/Insurance "HTTP/1.1 200 OK"
+[ 2025-05-21 21:32:52,205 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-05-21 21:32:52,207 ] 107 dagshub - INFO - Initialized MLflow to track repo "ashokmevada18/Insurance"
+[ 2025-05-21 21:32:52,208 ] 107 dagshub - INFO - Repository ashokmevada18/Insurance initialized!
+[ 2025-05-21 21:32:52,208 ] 194 root - INFO - Starting Model Training Stage
+[ 2025-05-21 21:32:52,232 ] 115 root - INFO - Starting model evaluation...
+[ 2025-05-21 21:37:45,502 ] 130 root - INFO - Best model found: Decision Tree with score: 0.9986788910347124
+[ 2025-05-21 21:37:45,503 ] 131 root - INFO - Best hyperparameters: {'criterion': 'gini', 'max_depth': 10}
+[ 2025-05-21 21:38:37,881 ] 46 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-05-21 21:38:37,883 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-05-21 21:38:37,883 ] 46 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-05-21 21:38:37,885 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-05-21 21:38:37,885 ] 162 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=1.0, precision_score=1.0, recall_score=1.0), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9991688311688312, precision_score=0.999008547008547, recall_score=0.9993333333333333))
+[ 2025-05-21 21:38:37,891 ] 229 root - INFO - Completed Model Training Stage
