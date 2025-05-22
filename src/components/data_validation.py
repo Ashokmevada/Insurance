@@ -82,34 +82,42 @@ class DataValidation:
             raise CustomException(e,sys)
 
     def initiate_data_validation(self) -> DataValidationArtifact:
-
+        
         try:
             train_file_path = self.data_ingestion_artifact.trained_file_path
             test_file_path = self.data_ingestion_artifact.test_file_path
 
-            #Read the data from train and test
+            # Read the data
             train_dataframe = DataValidation.read_data(train_file_path)
             test_dataframe = DataValidation.read_data(test_file_path)
 
-            #validate number of columns
-
+            # Validate columns
             status = self.validate_number_of_columns(dataframe=train_dataframe)
             if not status:
-                error_message = f"Train dataframe does not contain all columns.\n"
+                raise Exception("Train dataframe does not contain all required columns.")
 
             status = self.validate_number_of_columns(dataframe=test_dataframe)
             if not status:
-                error_message = f"Test dataframe does not contain all columns.\n"
+                raise Exception("Test dataframe does not contain all required columns.")
 
-            # lets check datadrift
-            status = self.detect_dataset_drift(base_df=train_dataframe, current_df=test_dataframe)
-            if not status:
-                error_message = f"Data drift found between train and test dataframe.\n"
-                raise Exception(error_message)
+            # Drift check
+            drift_status = self.detect_dataset_drift(base_df=train_dataframe, current_df=test_dataframe)
+
+            # Load drift report to append final status
+            drift_report_file_path = self.data_validation_config.drift_report_file_path
+            drift_report = read_yaml_file(drift_report_file_path)
+
+            drift_report["final_validation_status"] = drift_status
+
+            # Rewrite the report with final status
+            write_yaml_file(file_path=drift_report_file_path, content=drift_report)
+
+            if not drift_status:
+                raise Exception("Data drift found between train and test dataframe.")
 
             data_validation_artifact = DataValidationArtifact(
-                validation_status = status,
-                valid_train_file_path = self.data_ingestion_artifact.trained_file_path,
+                validation_status=drift_status,
+                valid_train_file_path=self.data_ingestion_artifact.trained_file_path,
                 valid_test_file_path=self.data_ingestion_artifact.test_file_path,
                 invalid_test_file_path=None,
                 invalid_train_file_path=None,
@@ -117,9 +125,10 @@ class DataValidation:
             )
 
             return data_validation_artifact
-        
+
         except Exception as e:
-            raise CustomException(e,sys)
+            raise CustomException(e, sys)
+
 
 
 if __name__ == '__main__':

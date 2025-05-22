@@ -33,16 +33,20 @@ stages:
       size: 749758
     - path: src\components\data_validation.py
       hash: md5
-      md5: b9883ca5c3a6f4165c0b3a52681bf037
-      size: 5811
+      md5: 6cca2ca03d9108ade41470e0abbb4867
+      size: 6178
     outs:
     - path: Artifacts\data_validation\drift_report\report.yaml
       hash: md5
-      md5: c13960e944320998823ba61615b88721
-      size: 1936
+      md5: edf7c2b54cba4892207572d47c99f113
+      size: 1967
   data_transformation:
     cmd: python -m src.components.data_transformation
     deps:
+    - path: Artifacts\data_validation\drift_report\report.yaml
+      hash: md5
+      md5: edf7c2b54cba4892207572d47c99f113
+      size: 1967
     - path: src\components\data_transformation.py
       hash: md5
       md5: abb13cc2f0f4b80d7022eb23e614631e

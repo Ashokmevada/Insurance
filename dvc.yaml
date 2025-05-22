@@ -21,6 +21,7 @@ stages:
     cmd: python -m src.components.data_transformation
     deps:
     - src\components\data_transformation.py
+    - Artifacts\data_validation\drift_report\report.yaml
     outs:
     - Artifacts\data_transformation\transformed\test.npy
     - Artifacts\data_transformation\transformed\train.npy
