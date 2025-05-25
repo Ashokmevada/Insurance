@@ -1,2 +1,5 @@
 project:
     name: insurance
+mounts:
+  - src: G:\DATASCIENCE\End_to_End_Project\Insurance
+    dest: /usr/local/airflow/dags/insurance_project
