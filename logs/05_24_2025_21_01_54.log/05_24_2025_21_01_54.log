@@ -1,0 +1,7 @@
+[ 2025-05-24 21:01:55,474 ] 140 root - INFO - Starting Data Validation
+[ 2025-05-24 21:01:55,508 ] 40 root - INFO - Required number of columns:27
+[ 2025-05-24 21:01:55,508 ] 41 root - INFO - Data frame has columns:27
+[ 2025-05-24 21:01:55,508 ] 40 root - INFO - Required number of columns:27
+[ 2025-05-24 21:01:55,508 ] 41 root - INFO - Data frame has columns:27
+[ 2025-05-24 21:01:55,689 ] 116 root - INFO - Data drift found between train and test dataframe.
+[ 2025-05-24 21:01:55,690 ] 154 root - INFO - Data Validation Completed

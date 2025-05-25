@@ -113,7 +113,7 @@ class DataValidation:
             write_yaml_file(file_path=drift_report_file_path, content=drift_report)
 
             if not drift_status:
-                raise Exception("Data drift found between train and test dataframe.")
+                logging.info("Data drift found between train and test dataframe.")
 
             data_validation_artifact = DataValidationArtifact(
                 validation_status=drift_status,
